@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_study/alacarte_reservation/route/routes.dart';
+import 'package:flutter_study/alacarte_reservation/views/restaurant_view.dart';
 import 'package:get/get.dart';
-import 'package:flutter_study/drawer_study/drawer.dart';
-import 'package:flutter_study/first_study/drawer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,14 +13,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
       //routes: ,
-      home: const DrawerStudy(),
+      initialRoute: Routes.getHomeRoute(),
+      getPages: Routes.routes,
     );
   }
 }

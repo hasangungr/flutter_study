@@ -21,7 +21,7 @@ class _DrawerViewState extends State<DrawerView> {
       appBar: AppBar(
           leading: IconButton(
               onPressed: () {
-                _scaffoldKey.currentState!.openDrawer();
+                _scaffoldKey.currentState!.openDrawer(); // /??? Sor
               },
               icon: const Icon(Icons.abc))),
       drawer: Drawer(

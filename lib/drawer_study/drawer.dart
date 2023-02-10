@@ -23,7 +23,7 @@ class DrawerStudy extends StatelessWidget {
 
   Widget colourfulFeaturedViews() {
     return Container(
-      width: double.infinity,
+      width: double.infinity, 
       height: 75,
       color: Colors.orange,
       child: ListView(
@@ -74,7 +74,7 @@ class DrawerStudy extends StatelessWidget {
   Widget rowCardWithIcon({required String text, required IconData icon}) {
     //fix name
     return ListTile(
-      onTap: (() => null),
+      onTap: null,
       leading: Icon(icon),
       title: Text(text),
     );

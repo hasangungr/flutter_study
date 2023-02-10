@@ -72,14 +72,3 @@ class Test extends StatelessWidget {
     );
   }
 }
-
-/* floating action button
-center title
-title
-action
-shape
-bottom
-elevation
-leading
-automatically leading
-shadow color*/
