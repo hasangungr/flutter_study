@@ -1,4 +1,4 @@
-import 'package:flutter_study/alacarte_reservation/model/table.dart';
+import 'package:flutter_study/alacarte_reservation/model/static/table.dart';
 
 class Restaurant {
   String restaurantName;

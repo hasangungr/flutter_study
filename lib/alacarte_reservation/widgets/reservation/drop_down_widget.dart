@@ -3,15 +3,14 @@ import 'package:flutter_study/alacarte_reservation/controller/drop_down_controll
 import 'package:flutter_study/alacarte_reservation/widgets/reservation/table_container_widget.dart';
 import 'package:get/get.dart';
 
-late DropDownController _dropDownController;
-
 class DropDownWidget extends StatelessWidget {
-  DropDownWidget(DropDownController dropDownController, {super.key}) {
-    _dropDownController = dropDownController;
-  }
+  const DropDownWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
+    DropDownController dropDownController = Get.put(DropDownController());
+//Değişikliği nresi tetikliyorsa oraya get.put neresi etkileniyorsa get.find
+
     List<DropdownMenuItem<String>> dropList = List.generate(
       restaurantList.length,
       (index) => DropdownMenuItem(
@@ -21,14 +20,14 @@ class DropDownWidget extends StatelessWidget {
 
     return Obx(() {
       String value =
-          dropList[_dropDownController.index.value.toInt()].value.toString();
+          dropList[dropDownController.index.value.toInt()].value.toString();
 
       return DropdownButton(
           items: dropList,
           onChanged: (value) {
             for (var i = 0; i < dropList.length; i++) {
               if (value == dropList[i].value) {
-                _dropDownController.choosedIndex(i);
+                dropDownController.choosedIndex(i);
               }
             }
           },

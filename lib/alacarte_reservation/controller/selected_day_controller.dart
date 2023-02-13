@@ -14,5 +14,6 @@ class DateTimePickerController extends GetxController {
     if (pickedDate != null && pickedDate != selectedDay.value) {
       selectedDay.value = pickedDate;
     }
+    update();
   }
 }

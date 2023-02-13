@@ -5,5 +5,7 @@ class DropDownController extends GetxController {
 
   void choosedIndex(var newIndex) {
     index.value = newIndex;
+
+    print("tetik");
   }
 }

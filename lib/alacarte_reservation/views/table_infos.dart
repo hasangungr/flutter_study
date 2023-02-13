@@ -19,11 +19,8 @@ class TableInfosView extends StatelessWidget {
                   title: "Test",
                   message: "showSnackBar",
                   duration: Duration(seconds: 1),
-                  mainButton: ElevatedButton(
-                      onPressed: () {
-                    
-                      },
-                      child: Text("Dön Geri")),
+                  mainButton:
+                      ElevatedButton(onPressed: () {}, child: Text("Dön Geri")),
                 ),
               );
             }),
