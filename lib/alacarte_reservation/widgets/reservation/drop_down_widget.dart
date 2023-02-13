@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_study/alacarte_reservation/controller/api_controller.dart';
 import 'package:flutter_study/alacarte_reservation/controller/drop_down_controller.dart';
+import 'package:flutter_study/alacarte_reservation/model/api/restaurant_model.dart';
 import 'package:flutter_study/alacarte_reservation/widgets/reservation/table_container_widget.dart';
 import 'package:get/get.dart';
 
@@ -10,6 +12,8 @@ class DropDownWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     DropDownController dropDownController = Get.put(DropDownController());
 //Değişikliği nresi tetikliyorsa oraya get.put neresi etkileniyorsa get.find
+    RestaurantController restaurantController = Get.put(RestaurantController());
+    List<RestaurantModel> restList = restaurantController.restaurantList;
 
     List<DropdownMenuItem<String>> dropList = List.generate(
       restaurantList.length,
@@ -34,4 +38,6 @@ class DropDownWidget extends StatelessWidget {
           value: value);
     });
   }
+
+
 }
