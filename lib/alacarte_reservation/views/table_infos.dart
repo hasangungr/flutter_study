@@ -1,7 +1,10 @@
+// ignore_for_file: no_leading_underscores_for_local_identifiers
+
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter_study/alacarte_reservation/late_use/test.dart';
+
+import 'package:flutter_study/alacarte_reservation/controller/api_controller.dart';
+import 'package:flutter_study/alacarte_reservation/model/api/restaurant_model.dart';
+
 import 'package:get/get.dart';
 
 class TableInfosView extends StatelessWidget {
@@ -9,27 +12,34 @@ class TableInfosView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    RestaurantController restaurantController = Get.find();
+    List<RestaurantModel> _httpRestList = restaurantController.restaurantList;
     return Scaffold(
       appBar: AppBar(automaticallyImplyLeading: false,),
       body: Center(
-        child: TextButton(
-            child: Text("TABLE INFOS SCREEN"),
+        child: Text(_httpRestList.toList().toString())
+      ),
+    );
+  }
+
+
+  textWidget(){
+  return TextButton(
+            child: const Text("TABLE INFOS SCREEN"),
             onPressed: () {
               Get.back();
               Get.showSnackbar(
                 GetSnackBar(
                   title: "Test",
                   message: "showSnackBar",
-                  duration: Duration(seconds: 1),
+                  duration: const Duration(seconds: 1),
                   mainButton: ElevatedButton(
                       onPressed: () {
-                        Get.to(test());
+             //           Get.to(test());
                       },
-                      child: Text("Dön Geri")),
+                      child: const Text("Dön Geri")),
                 ),
               );
-            }),
-      ),
-    );
+            });
   }
 }

@@ -11,9 +11,9 @@ class RestaurantController extends GetxController {
 ////
 //BURAYI İYİ ÖĞREN/
 ////
-  fetchData() async {
+    fetchData() async {
     try {
-      http.Response response = await http.get(Uri.parse(
+      http.Response response = await http.get(Uri.parse( //1. aşama
           "https://study-reservation-alacarte-default-rtdb.firebaseio.com/data.json"));
 
       if (response.statusCode == 200) {
@@ -21,13 +21,16 @@ class RestaurantController extends GetxController {
         restaurantList.value =
             result.map((e) => RestaurantModel.fromJson(e)).toList();
         isLoading.value = false;
-        //update();
+        
+        
+        update();
+        
       } else {
         Get.snackbar("Error Loading Data!",
             "Server Responed: ${response.statusCode}: ${response.reasonPhrase}");
       }
     } catch (e) {
-      print("Error");
+   //   print("Error");
     } finally {}
   }
 

@@ -17,18 +17,18 @@ class RestaurantModel {
     if (json['tableList'] != null) {
       tableList = <TableList>[];
       json['tableList'].forEach((v) {
-        tableList!.add(new TableList.fromJson(v));
+        tableList!.add(TableList.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['restaurantCapacity'] = this.restaurantCapacity;
-    data['restaurantName'] = this.restaurantName;
-    data['restaurantTableCount'] = this.restaurantTableCount;
-    if (this.tableList != null) {
-      data['tableList'] = this.tableList!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['restaurantCapacity'] = restaurantCapacity;
+    data['restaurantName'] = restaurantName;
+    data['restaurantTableCount'] = restaurantTableCount;
+    if (tableList != null) {
+      data['tableList'] = tableList!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -66,15 +66,15 @@ class TableList {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['chairCount'] = this.chairCount;
-    data['checkIn'] = this.checkIn;
-    data['reservationDate'] = this.reservationDate;
-    data['reservationName'] = this.reservationName;
-    data['reservationPax'] = this.reservationPax;
-    data['reservationReason'] = this.reservationReason;
-    data['reservationRoomNumber'] = this.reservationRoomNumber;
-    data['tableNumber'] = this.tableNumber;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['chairCount'] = chairCount;
+    data['checkIn'] = checkIn;
+    data['reservationDate'] = reservationDate;
+    data['reservationName'] = reservationName;
+    data['reservationPax'] = reservationPax;
+    data['reservationReason'] = reservationReason;
+    data['reservationRoomNumber'] = reservationRoomNumber;
+    data['tableNumber'] = tableNumber;
     return data;
   }
 }

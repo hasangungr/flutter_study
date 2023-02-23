@@ -13,9 +13,9 @@ class Routes {
   static String getTableInfos() => tableInfos;
 
   static List<GetPage> routes = [
-    GetPage(page: () => const RestaurantView(), name: home,transitionDuration: Duration(seconds: 2), transition: Transition.cupertino),
-    GetPage(page: () => const NewReservation(), name: newReservation,transitionDuration: Duration(seconds: 2), transition: Transition.cupertino),
-    GetPage(page: () => const TableInfosView(), name: tableInfos, transitionDuration: Duration(seconds: 2), transition: Transition.cupertino,)
+    GetPage(page: () => const RestaurantView(), name: home,transitionDuration: const Duration(seconds: 2), transition: Transition.cupertino),
+    GetPage(page: () => const NewReservationView(), name: newReservation,transitionDuration: const Duration(seconds: 2), transition: Transition.cupertino),
+    GetPage(page: () => const TableInfosView(), name: tableInfos, transitionDuration: const Duration(seconds: 2), transition: Transition.cupertino,)
   ];
 }
 //SAYFA GEÇİŞLERİNE BAK

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_study/alacarte_reservation/route/routes.dart';
-import 'package:flutter_study/alacarte_reservation/views/restaurant_view.dart';
 import 'package:get/get.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {

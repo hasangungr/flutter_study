@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_study/alacarte_reservation/controller/selected_day_controller.dart';
 import 'package:flutter_study/alacarte_reservation/route/routes.dart';
@@ -17,8 +16,10 @@ class TableContainerButton extends ElevatedButton {
       required String? reservDateApi,
       required DateTimePickerController datePickerController})
       : super(
+        
             key: key,
             style: ButtonStyle(
+              //padding:MaterialStateProperty.all(Edge), ,
               backgroundColor:  MaterialStateProperty.all(
                 elevatedButtonColor(reservDateApi, datePickerController),)
               ),
@@ -47,7 +48,7 @@ class TableContainerField extends Container {
     required String? reservationName,
   }) : super(
             key: key,
-            margin: EdgeInsets.all(12),
+            margin: const EdgeInsets.all(12),
             width: Get.width / 6,
             height: Get.height / 12,
             color: checkIn == true ? Colors.red.shade900 : Colors.white,
@@ -72,21 +73,20 @@ Color elevatedButtonColor(
         : Colors.red;
 
 Widget tableIcon(String? reservationReason) {
-  IconData? icon;
   switch (reservationReason) {
     case "birthday":
-      return Expanded(flex: 1, child: Icon(icon = Icons.cake));
+      return const Expanded(flex: 1, child: Icon(Icons.cake));
 
     case "anniversary":
-      return Expanded(
-          flex: 1, child: Icon(icon = Icons.sentiment_satisfied_outlined));
+      return const Expanded(
+          flex: 1, child: Icon(Icons.sentiment_satisfied_outlined));
 
     case null:
-      return Text("");
+      return const Text("");
     case "":
-      return Text("");
+      return const Text("");
 
     default:
-      return Text("");
+      return const Text("");
   }
 }

@@ -2,42 +2,51 @@ import 'package:flutter/material.dart';
 import 'package:flutter_study/alacarte_reservation/controller/api_controller.dart';
 import 'package:flutter_study/alacarte_reservation/controller/drop_down_controller.dart';
 import 'package:flutter_study/alacarte_reservation/model/api/restaurant_model.dart';
-import 'package:flutter_study/alacarte_reservation/widgets/reservation/table_container_widget.dart';
 import 'package:get/get.dart';
 
 class DropDownWidget extends StatelessWidget {
-  const DropDownWidget({super.key});
+  const DropDownWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    DropDownController dropDownController = Get.put(DropDownController());
-//Değişikliği nresi tetikliyorsa oraya get.put neresi etkileniyorsa get.find
     RestaurantController restaurantController = Get.put(RestaurantController());
     List<RestaurantModel> restList = restaurantController.restaurantList;
+    DropDownController dropDownController = Get.put(DropDownController());
 
-    List<DropdownMenuItem<String>> dropList = List.generate(
-      restaurantList.length,
-      (index) => DropdownMenuItem(
-          value: restaurantList[index].restaurantName,
-          child: Text(restaurantList[index].restaurantName)),
+    return SizedBox(
+ 
+      height: Get.height / 10,
+      child: Obx(
+        () {
+          if (restaurantController.isLoading.value == true) {
+            return const CircularProgressIndicator();
+          } else {
+            List<DropdownMenuItem<String>> dropDownItems = List.generate(
+              restList.length,
+              (index) {
+                return DropdownMenuItem<String>(
+                  value: restList[index].restaurantName,
+                  child: Text(
+                    restList[index].restaurantName.toString(),
+                  ),
+                );
+              },
+            );
+            debugPrint(dropDownItems[0].value.toString());
+            return DropdownButton<String>(
+                value: dropDownItems[dropDownController.index.value].value,
+                items: dropDownItems,
+                onChanged: (value) {
+                  for (int i = 0; i < dropDownItems.length; i++) {
+                    if (value == dropDownItems[i].value) {
+                      dropDownController.choosedIndex(i);
+                      // dropValue = value;
+                    }
+                  }
+                });
+          }
+        },
+      ),
     );
-
-    return Obx(() {
-      String value =
-          dropList[dropDownController.index.value.toInt()].value.toString();
-
-      return DropdownButton(
-          items: dropList,
-          onChanged: (value) {
-            for (var i = 0; i < dropList.length; i++) {
-              if (value == dropList[i].value) {
-                dropDownController.choosedIndex(i);
-              }
-            }
-          },
-          value: value);
-    });
   }
-
-
 }
