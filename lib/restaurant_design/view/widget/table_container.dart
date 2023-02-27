@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -50,7 +49,7 @@ Widget tableContainer({
             child: Text(
               tableNumber,
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 14,
               ),
             ),
@@ -78,7 +77,7 @@ Widget tableCorner(
     left: leftValue,
     top: topValue,
     bottom: bottomValue,
-    child: Container(
+    child: SizedBox(
    
       width: Get.width / 9,
       height: Get.height / 18,
@@ -91,14 +90,15 @@ Widget? cornerIcon(String? reservationReason) {
   if (reservationReason != null) {
     switch (reservationReason) {
       case "birthday":
-        return Icon(Icons.cake);
+        return const Icon(Icons.cake);
 
       case "party":
-        return Icon(Icons.add_reaction);
+        return const Icon(Icons.add_reaction);
       default:
 
     }
   } else {
     return null;
   }
+  return null;
 }

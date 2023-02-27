@@ -5,11 +5,13 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 class AppBarField extends AppBar {
-  AppBarField({Key? key})
+
+  AppBarField({Key? key ,  })
       : super(
           key: key,
-          toolbarHeight: Get.height / 15,
-          leading: const Icon(Icons.arrow_back),
+          toolbarHeight: 
+          Get.height / 15,
+          leading: const Icon(Icons.arrow_back, color: Colors.black),
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(18.0),
@@ -24,9 +26,10 @@ class AppBarField extends AppBar {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
-                  Colors.blue.shade900,
-                  Colors.blue.shade100,
-                  Colors.blue.shade900
+                  Colors.grey.shade400,
+                  Colors.white,
+                  Colors.grey.shade400,
+                  Colors.white
                 ],
               ),
             ),
@@ -53,7 +56,7 @@ class AppBarField extends AppBar {
                     onPressed: () {
                       dateTimePickerController.choosedDateTime();
                     },
-                    icon: const Icon(Icons.calendar_month),
+                    icon: const Icon(Icons.calendar_month, color: Colors.black),
                   )
                 ],
               );

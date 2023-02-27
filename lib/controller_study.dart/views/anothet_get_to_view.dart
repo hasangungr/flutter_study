@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:flutter_study/controller_study.dart/counter.dart';
 import 'package:flutter_study/controller_study.dart/routes/routes.dart';
 import 'package:flutter_study/controller_study.dart/views/another.dart';
@@ -24,25 +23,25 @@ class GetToView extends StatelessWidget {
               onPressed: () {
                 Get.back();
               },
-              child: Text("Back"),
+              child: const Text("Back"),
             ),
              ElevatedButton(
               onPressed: () {
                 Get.to(CounterView());
               },
-              child: Text("To"),
+              child: const Text("To"),
             ),
              ElevatedButton(
               onPressed: () {
                 Get.toNamed(Routes.getHomeRoute());
               },
-              child: Text("Named"),
+              child: const Text("Named"),
             ),
              ElevatedButton(
               onPressed: () {
-                Get.to(Another());
+                Get.to(const Another());
               },
-              child: Text("Another"),
+              child: const Text("Another"),
             ),
             
           ],

@@ -18,15 +18,11 @@ class HomeController extends GetxController
   
 
   void increase() {
-    if (count != null) {
-      count.value = count.value + 1;
-    }
+    count.value = count.value + 1;
   }
 
   void decrease() {
-    if (count != null) {
-      count.value = count.value - 1;
-    }
+    count.value = count.value - 1;
   }
 
   @override

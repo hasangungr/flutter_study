@@ -3,7 +3,7 @@ import 'package:flutter_study/alacarte_reservation/route/routes.dart';
 import 'package:get/get.dart';
 
 void main() {
-  runApp( MyApp());
+  runApp( const MyApp());
 }
 
 class MyApp extends StatelessWidget {

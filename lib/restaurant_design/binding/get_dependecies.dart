@@ -1,5 +1,5 @@
 
-import 'package:flutter_study/restaurant_design/controller/restaurant_view_controller.dart';
+import 'package:flutter_study/alacarte_design/controller/restaurant_view_controller.dart';
 import 'package:get/get.dart';
 
 class RestaurantBinding extends Bindings {

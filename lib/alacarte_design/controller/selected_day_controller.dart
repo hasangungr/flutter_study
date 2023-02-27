@@ -7,6 +7,7 @@ class DateTimePickerController extends GetxController {
   void choosedDateTime() async {
     DateTime? pickedDate = await showDatePicker(
         context: Get.context!,
+        
         initialDate: DateTime.now(),
         firstDate: DateTime.now(),
         lastDate: DateTime(2024));

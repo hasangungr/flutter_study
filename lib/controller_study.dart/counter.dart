@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_study/controller_study.dart/controller/home_controller.dart';
 import 'package:flutter_study/controller_study.dart/routes/routes.dart';
 
-import 'package:flutter_study/controller_study.dart/views/anothet_get_to_view.dart';
 import 'package:get/get.dart';
 
 class CounterView extends StatelessWidget {
   final HomeController _homeController = Get.put(HomeController());
+
+   CounterView({Key? key}) : super(key: key);
   //getx smart management
   //default olarak controllerlar otomatik silinir ama serviceler silinmez
 
@@ -30,7 +31,7 @@ class CounterView extends StatelessWidget {
             children: [
               Text(_homeController.count.value.toString()),
               ElevatedButton(
-                child: Text("Named"),
+                child: const Text("Named"),
                 onPressed: () {
                   Get.toNamed(Routes.getAnotherGetToView());
                  //_homeController.onDelete();
@@ -43,18 +44,18 @@ class CounterView extends StatelessWidget {
                 },
               ),
               ElevatedButton(
-                  child: Text("No Dispose"),
+                  child: const Text("No Dispose"),
                   onPressed: () {
                     //    _homeController.onClose();
                     Get.toNamed(Routes.getAnotherGetToView());
                   }),
               ElevatedButton(
                 onPressed: () => _homeController.decrease(),
-                child: Text("-"),
+                child: const Text("-"),
               ),
               ElevatedButton(
                 onPressed: () => _homeController.increase(),
-                child: Text("+"),
+                child: const Text("+"),
               )
             ],
           ),

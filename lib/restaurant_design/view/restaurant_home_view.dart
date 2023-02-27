@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_study/restaurant_design/controller/restaurant_view_controller.dart';
+import 'package:flutter_study/alacarte_design/controller/restaurant_view_controller.dart';
 import 'package:flutter_study/restaurant_design/view/restaurant_view/indoor_view.dart';
 import 'package:flutter_study/restaurant_design/view/restaurant_view/outdoor_view.dart';
 import 'package:get/get.dart';
 
 class RestaurantHomeView extends GetView<RestaurantViewController> {
-  RestaurantHomeView({Key? key}) : super(key: key);
+  const RestaurantHomeView({Key? key}) : super(key: key);
   // RestaurantViewController controller = Get.find();
 
   @override
@@ -27,7 +27,7 @@ class RestaurantHomeView extends GetView<RestaurantViewController> {
           onTap: controller.changeTabIndex,
           currentIndex: controller.tabIndex.value,
           items: [
-            _bottomNavigationBarItem(Icons.home, "Indoor"),
+            BottomNavigationBarItem(icon :Icon(Icons.home),label: "Indoor"),
             _bottomNavigationBarItem(Icons.sunny, "Outdoor"),
           ],
         ),
