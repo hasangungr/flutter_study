@@ -6,6 +6,7 @@ import 'package:flutter_study/alacarte_design/field/appbar_field.dart';
 import 'package:flutter_study/alacarte_design/view/fourth_tab.dart';
 import 'package:flutter_study/alacarte_design/view/second_tab.dart';
 import 'package:flutter_study/alacarte_design/view/third_tab.dart';
+import 'package:flutter_study/alacarte_design/widget/drawer_widget.dart';
 import 'package:flutter_study/restaurant_design/view/tabs_screen.dart';
 import 'package:get/get.dart';
 
@@ -19,6 +20,7 @@ class RestaurantHomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: DrawerWidget(),
       appBar: AppBarField(),
       body: InteractiveViewer(
         child: Expanded(
@@ -76,47 +78,68 @@ class RestaurantHomeView extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: Obx(
-        () => Container(
-          decoration: BoxDecoration(
-            borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
-            gradient: LinearGradient(
-              begin: Alignment.bottomLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                restaurantViewController.tabIndex.value == 1
-                    ? Colors.white
-                    : Colors.black,
-                restaurantViewController.tabIndex.value == 0
-                    ? Colors.white
-                    : Colors.black,
+        () => GestureDetector(
+          onVerticalDragEnd: (details) {
+            Get.bottomSheet(
+              
+              
+              Container(
+              height: Get.height / 2,
+              decoration: BoxDecoration(
+                borderRadius:
+                    const BorderRadius.vertical(top: Radius.circular(12)),
+         color: Colors.white
+              ),
+              child: Column(
+                children: [
+                  Center(
+                    child: Text("Restaurant Info",
+                        style: TextStyle(
+                            fontSize: 32,
+                            fontFamily: "Average",
+                            color: Colors.black)),
+                  )
+                ],
+              ),
+            ));
+          },
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius:
+                  const BorderRadius.vertical(top: Radius.circular(12)),
+                color: Colors.white
+
+            ),
+            child: BottomNavigationBar(
+              backgroundColor: Colors.transparent,
+              unselectedItemColor: Colors.black,
+              selectedItemColor: Colors.white,
+              onTap: restaurantViewController.changeTabIndex,
+              currentIndex: restaurantViewController.tabIndex.value,
+              items: [
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.home,
+                    size:
+                        restaurantViewController.tabIndex.value == 0 ? 28 : 18,
+                    color: restaurantViewController.tabIndex.value == 0
+                        ? Colors.white
+                        : Colors.black,
+                  ),
+                  label: "Indoor",
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.sunny,
+                      size: restaurantViewController.tabIndex.value == 1
+                          ? 28
+                          : 18,
+                      color: restaurantViewController.tabIndex.value == 1
+                          ? Colors.white
+                          : Colors.black),
+                  label: "Outdoor",
+                ),
               ],
             ),
-          ),
-          child: BottomNavigationBar(
-            backgroundColor: Colors.transparent,
-            unselectedItemColor: Colors.black,
-            selectedItemColor: Colors.white,
-            onTap: restaurantViewController.changeTabIndex,
-            currentIndex: restaurantViewController.tabIndex.value,
-            items: [
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.home,
-                   size: restaurantViewController.tabIndex.value == 0 ?28 :18,
-                  color: restaurantViewController.tabIndex.value == 0
-                      ? Colors.white
-                      : Colors.black,
-                ),
-                label: "Indoor",
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.sunny,size: restaurantViewController.tabIndex.value == 1 ?28 :18,
-                    color: restaurantViewController.tabIndex.value == 1
-                        ? Colors.white
-                        : Colors.black),
-                label: "Outdoor",
-              ),
-            ],
           ),
         ),
       ),

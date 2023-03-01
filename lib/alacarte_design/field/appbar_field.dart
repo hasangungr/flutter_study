@@ -11,7 +11,8 @@ class AppBarField extends AppBar {
           key: key,
           toolbarHeight: 
           Get.height / 15,
-          leading: const Icon(Icons.arrow_back, color: Colors.black),
+          
+      //    leading: const Icon(Icons.arrow_back, color: Colors.black),
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(18.0),
