@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_study/restaurant_app/field/container_field.dart';
 import 'package:flutter_study/restaurant_app/widget/tabbar_widgets/restaurant_info_bottom_sheet.dart';
+import 'package:flutter_study/restaurant_app/widget/tabbar_widgets/restoran_info_graphic_bottom_sheet.dart';
 import 'package:get/get.dart';
 
 double deviceHeight = Get.height;
@@ -107,9 +108,13 @@ Widget tabbarAppbar() {
     actions: [
       IconButton(
           onPressed: () {
-            Get.bottomSheet(RestaurantInfoBottomSheet());
+            Get.bottomSheet(RestaurantInfoBottomSheet(),isScrollControlled: true);
           },
-          icon: Icon(Icons.info))
+          icon: Icon(Icons.info)),   IconButton(
+          onPressed: () {
+            Get.bottomSheet(RestaurantInfoGraphicBottomSheet(),isScrollControlled: true);
+          },
+          icon: Icon(Icons.auto_graph))
     ],
     backgroundColor: Colors.grey.shade300,
     automaticallyImplyLeading: false,

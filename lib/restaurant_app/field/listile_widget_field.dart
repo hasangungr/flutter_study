@@ -9,10 +9,17 @@ class RestaurantListTile extends ListTile {
       required String restaurantDesc})
       : super(
           key: key,
-          trailing: CircleAvatar(
-            backgroundColor: Colors.grey.shade400,
-            child:
-                Text(restaurantCapacity, style: TextStyle(color: Colors.black)),
+          trailing: Column(
+            children: [
+              Expanded(child: Icon(Icons.person)),
+              Expanded(
+                child: CircleAvatar(
+                  backgroundColor: Colors.grey.shade400,
+                  child:
+                      Text(restaurantCapacity, style: TextStyle(color: Colors.black)),
+                ),
+              ),
+            ],
           ),
           leading: Image.asset("assets/images/steak.png"),
           title: Text(
@@ -41,10 +48,11 @@ class ReservationCardListTile extends ListTile {
             height: Get.height / 16,
             color: cardColor,
             child: Center(
-                child: Text(
-              tableNumber,
-              style: TextStyle(color: Colors.white),
-            )),
+              child: Text(
+                tableNumber,
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
           ),
           title: Row(
             children: [
