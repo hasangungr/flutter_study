@@ -15,8 +15,8 @@ class RestaurantListTile extends ListTile {
               Expanded(
                 child: CircleAvatar(
                   backgroundColor: Colors.grey.shade400,
-                  child:
-                      Text(restaurantCapacity, style: TextStyle(color: Colors.black)),
+                  child: Text(restaurantCapacity,
+                      style: TextStyle(color: Colors.grey)),
                 ),
               ),
             ],
@@ -30,7 +30,7 @@ class RestaurantListTile extends ListTile {
         );
 }
 
-class ReservationCardListTile extends ListTile {
+class ReservationCardListTile extends Container {
   ReservationCardListTile(
       {Key? key,
       required String roomNumber,
@@ -42,74 +42,90 @@ class ReservationCardListTile extends ListTile {
       required String? childPax})
       : super(
           key: key,
-          contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
-          leading: Container(
-            width: Get.width / 8,
-            height: Get.height / 16,
-            color: cardColor,
-            child: Center(
-              child: Text(
-                tableNumber,
-                style: TextStyle(color: Colors.white),
-              ),
-            ),
-          ),
-          title: Row(
+          height: Get.height / 12.5,
+          margin: EdgeInsets.all(4),
+          decoration: BoxDecoration(
+              border: Border.all(width: 1.5),
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(18)),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                roomNumber,
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
-              ),
-              SizedBox(
-                width: 8,
-              ),
-              Expanded(
-                child: Text(
-                  reservationName,
-                  style: TextStyle(
-                      overflow: TextOverflow.ellipsis,
-                      fontSize: 18,
-                      fontWeight: FontWeight.normal),
+              Container(
+                padding: EdgeInsets.all(0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(14),
+                  color: cardColor,
+                ),
+                width: Get.width / 8,
+                height: Get.height / 12.5,
+                child: Center(
+                  child: Text(
+                    tableNumber,
+                    style: TextStyle(color: Colors.white, fontSize: 24),
+                  ),
                 ),
               ),
+              Container(
+                //  color: Colors.red,
+                height: Get.height / 12.5,
+                width: Get.width / 2.2,
+                child: Column(
+                  children: [
+                    Text(
+                      tableNumber + " " + reservationName,
+                      style: TextStyle(fontSize: 18),
+                    ),
+                    Text(
+                      reservationDescription,
+                      style: TextStyle(color: Colors.grey, fontSize: 12),
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                width: Get.width / 8,
+                padding: EdgeInsets.all(0),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(14), color: cardColor),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.person,
+                          size: 20,
+                          color: Colors.white,
+                        ),
+                        Text(
+                          pax,
+                          style: TextStyle(color: Colors.white, fontSize: 18),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.child_care,
+                          size: 20,
+                          color: Colors.white,
+                        ),
+                        Text(
+                          childPax ?? "0",
+                          style: TextStyle(color: Colors.white, fontSize: 18),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              )
             ],
-          ),
-          subtitle: Text(reservationDescription),
-          trailing: Container(
-            width: Get.width / 10,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Row(
-                  children: [
-                    Icon(
-                      Icons.person,
-                      size: 20,
-                      color: Colors.black,
-                    ),
-                    Text(
-                      pax,
-                      style: TextStyle(
-                          color: Color.fromARGB(255, 0, 0, 0), fontSize: 18),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Icon(
-                      Icons.child_care,
-                      size: 20,
-                      color: Colors.black,
-                    ),
-                    Text(
-                      childPax ?? "0",
-                      style: TextStyle(
-                          color: Color.fromARGB(255, 0, 0, 0), fontSize: 18),
-                    ),
-                  ],
-                )
-              ],
-            ),
           ),
         );
 }

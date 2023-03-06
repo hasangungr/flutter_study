@@ -7,8 +7,6 @@ import 'package:get/get.dart';
 double deviceHeight = Get.height;
 double deviceWidth = Get.width;
 
-
-
 customContainer(String text1, String text2) {
   return Container(
     height: deviceHeight / 11,
@@ -105,17 +103,6 @@ Widget reservationListTile() {
 
 Widget tabbarAppbar() {
   return AppBar(
-    actions: [
-      IconButton(
-          onPressed: () {
-            Get.bottomSheet(RestaurantInfoBottomSheet(),isScrollControlled: true);
-          },
-          icon: Icon(Icons.info)),   IconButton(
-          onPressed: () {
-            Get.bottomSheet(RestaurantInfoGraphicBottomSheet(),isScrollControlled: true);
-          },
-          icon: Icon(Icons.auto_graph))
-    ],
     backgroundColor: Colors.grey.shade300,
     automaticallyImplyLeading: false,
     bottom:
@@ -146,139 +133,94 @@ Widget tabbarAppbar() {
 Widget buttonsBottomSheet() {
   return Container(
     decoration: BoxDecoration(
-        color: Colors.grey,
-        borderRadius: BorderRadius.horizontal(
-            left: Radius.circular(24), right: Radius.circular(24))),
-    height: deviceHeight / 1.5,
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(24), topRight: Radius.circular(24))),
+    height: deviceHeight / 3,
     child: ListView(
       children: [
         Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                primary: Colors.white, // Düğmenin arka plan rengi
-                onPrimary: Colors.blueAccent, // Düğme metnin rengi
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20), // Düğmenin şekli
-                ),
-                minimumSize: Size(
-                    deviceWidth, deviceHeight / 14), // Düğmenin minimum boyutu
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              ),
-              child: Text(
-                "Booking",
-                style: TextStyle(fontSize: 28),
-              )),
-        ), Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                primary: Colors.white, // Düğmenin arka plan rengi
-                onPrimary: Colors.blueAccent, // Düğme metnin rengi
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20), // Düğmenin şekli
-                ),
-                minimumSize: Size(
-                    deviceWidth, deviceHeight / 14), // Düğmenin minimum boyutu
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              ),
-              child: Text(
-                "Booking",
-                style: TextStyle(fontSize: 28),
-              )),
-        ), Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                primary: Colors.white, // Düğmenin arka plan rengi
-                onPrimary: Colors.blueAccent, // Düğme metnin rengi
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20), // Düğmenin şekli
-                ),
-                minimumSize: Size(
-                    deviceWidth, deviceHeight / 14), // Düğmenin minimum boyutu
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              ),
-              child: Text(
-                "Booking",
-                style: TextStyle(fontSize: 28),
-              )),
-        ), Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                primary: Colors.white, // Düğmenin arka plan rengi
-                onPrimary: Colors.blueAccent, // Düğme metnin rengi
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20), // Düğmenin şekli
-                ),
-                minimumSize: Size(
-                    deviceWidth, deviceHeight / 14), // Düğmenin minimum boyutu
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              ),
-              child: Text(
-                "Booking",
-                style: TextStyle(fontSize: 28),
-              )),
-        ), Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                primary: Colors.white, // Düğmenin arka plan rengi
-                onPrimary: Colors.blueAccent, // Düğme metnin rengi
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20), // Düğmenin şekli
-                ),
-                minimumSize: Size(
-                    deviceWidth, deviceHeight / 14), // Düğmenin minimum boyutu
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              ),
-              child: Text(
-                "Booking",
-                style: TextStyle(fontSize: 28),
-              )),
-        ), Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                primary: Colors.white, // Düğmenin arka plan rengi
-                onPrimary: Colors.blueAccent, // Düğme metnin rengi
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20), // Düğmenin şekli
-                ),
-                minimumSize: Size(
-                    deviceWidth, deviceHeight / 14), // Düğmenin minimum boyutu
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              ),
-              child: Text(
-                "Booking",
-                style: TextStyle(fontSize: 28),
-              )),
-        ), Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                primary: Colors.white, // Düğmenin arka plan rengi
-                onPrimary: Colors.blueAccent, // Düğme metnin rengi
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20), // Düğmenin şekli
-                ),
-                minimumSize: Size(
-                    deviceWidth, deviceHeight / 14), // Düğmenin minimum boyutu
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              ),
-              child: Text(
-                "Booking",
-                style: TextStyle(fontSize: 28),
-              )),
-        )
+            padding: const EdgeInsets.all(8.0),
+            child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                    primary: Colors.green, // Düğmenin arka plan rengi
+                    onPrimary: Colors.white, // Düğme metnin rengi
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20), // Düğmenin şekli
+                    ),
+                    minimumSize: Size(deviceWidth,
+                        deviceHeight / 18), // Düğmenin minimum boyutu
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 20, vertical: 10)),
+                child: Text("Rezervasyon Yap",
+                    style: TextStyle(
+                        fontSize: 28,
+                        fontFamily: "San Francisco",
+                        letterSpacing: 2,
+                        fontWeight: FontWeight.w400)))),
+        Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                    primary: Colors.green, // Düğmenin arka plan rengi
+                    onPrimary: Colors.white, // Düğme metnin rengi
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20), // Düğmenin şekli
+                    ),
+                    minimumSize: Size(deviceWidth,
+                        deviceHeight / 16), // Düğmenin minimum boyutu
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 20, vertical: 10)),
+                child: Text("Check Out",
+                    style:
+                        TextStyle(fontSize: 28, fontFamily: "San Francisco")))),
+        Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                    primary: Colors.green, // Düğmenin arka plan rengi
+                    onPrimary: Colors.white, // Düğme metnin rengi
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20), // Düğmenin şekli
+                    ),
+                    minimumSize: Size(deviceWidth,
+                        deviceHeight / 16), // Düğmenin minimum boyutu
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 20, vertical: 10)),
+                child: Text("Check In",
+                    style: TextStyle(fontSize: 28, letterSpacing: 2)))),
+        Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                    primary: Colors.green, // Düğmenin arka plan rengi
+                    onPrimary: Colors.white, // Düğme metnin rengi
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20), // Düğmenin şekli
+                    ),
+                    minimumSize: Size(deviceWidth,
+                        deviceHeight / 16), // Düğmenin minimum boyutu
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 20, vertical: 10)),
+                child: Text("", style: TextStyle(fontSize: 28)))),Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                    primary: Colors.green, // Düğmenin arka plan rengi
+                    onPrimary: Colors.white, // Düğme metnin rengi
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20), // Düğmenin şekli
+                    ),
+                    minimumSize: Size(deviceWidth,
+                        deviceHeight / 16), // Düğmenin minimum boyutu
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 20, vertical: 10)),
+                child: Text("", style: TextStyle(fontSize: 28))))
       ],
     ),
   );

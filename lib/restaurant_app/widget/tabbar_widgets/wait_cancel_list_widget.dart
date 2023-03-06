@@ -8,7 +8,7 @@ class WaitCancelListWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> CheckInOutCardList = List.generate(22, (index) {
       return ReservationCardListTile(
-          cardColor: index % 2 == 0 ? Colors.black : Colors.amber,
+          cardColor: index % 2 == 0 ? Colors.grey : Colors.amber,
           roomNumber: (22 * index).toString(),
           tableNumber: index.toString(),
           reservationDescription: "Reservation Description",
